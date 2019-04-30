@@ -47,29 +47,32 @@ https://benjjneb.github.io/dada2/dada-installation.html
 
 
 #Familiarizing yourself with your working environment. 
-Your working environment and working directory are extremely important when you want to read in data or save an analysis. Imagine you are in your office; this is your working directory. You can write on a piece of paper and save it on your desk. You can also find notes which you left yourself. You are able to easily access anything in your office. Your neighbors office, while located in the same hallway, requires you to back out of your office and then enter his. This analogy holds true for finding files on your computer too. Your working environment will allow you to access files quickly and to write copies of your analysis or environment easily. Like you can walk into your co-workers office, you can change your working directory to access a different set of files. 
+Your working environment and working directory are extremely important when you want to read in data or save an analysis. Imagine you are in your office; this is your working directory. You can write on a piece of paper and save it on your desk. You can also find notes which you left yourself. You are able to easily access anything in your office. Your neighbors office, while located in the same hallway, requires you to back out of your office and then enter hers. This analogy holds true for finding files on your computer as well. Your working environment will allow you to access files quickly and to write copies of your analysis or environment easily. Like you can walk into your co-workers office, you can change your working directory to access a different set of files. 
 
-As an example, lets use the file named "pima.csv". We have already loaded this to your folder on the desktop. 
+As an example, lets use the file named "pima.csv". We have already loaded this to the folder on the desktop which you have renamed to "Introduction_to_R_YOURLASTNAME". 
 
-We want to read in the file 'pima.csv' and see what happens when we specify the wrong location. Up until now all text has been written outside of a block of code. In order to add comments, which is a really good, I mean really good, habit to get into you only need to add a "#" before any line you do not wish R to interpret. In the code below (lines 60-67) you can see certain lines are not interpreted even if you ran the block as a whole. These comments will not show up in your rendered .html notebook either. You have to open the notebook in R studio to access these comments. 
+Our goal in this section is to read in the file 'pima.csv' sucessfully as well as see what happens when we specify the wrong location. Doing so will help you to understand you can learn from coding errors. Up until now all text has been written outside of a block of code. In order to add comments, which is a really good, I mean REALLY good, habit to get into, you only need to add a "#" before any line you do not wish R to interpret. In the code below (lines ~60-67) you can see certain lines are not interpreted even if you ran the block as a whole. These comments will not show up in your rendered .html notebook either. You have to open the notebook in R studio to access these comments. 
 
-Here (lines 60-67) we have our first block of code, also referred to as a "chunk". Anything in here can be ran by clicking the green play button in the top right corner of the block. In addition, we can # out this block by placing a "#" before the r in the ```{r}. The keyboard shortcut for inserting a new block of code is "Command" + "Option" + "i". Run the code below. 
+Here (lines 60-67) we have a block of code, also referred to as a "chunk". Anything in here can be ran by clicking the green triangle button in the top right corner of the block. In addition, we can # out this block by placing a "#" before the r in the ```{r}. The keyboard shortcut for inserting a new block of code is "Command" + "Option" + "i". Run both sections of code below by clicking the green triangle button. 
 
 ```{r}
 #R will not interpret this line due to the # at the begining
 #Lets see where we are right now (our current working directory)
 getwd()
-#Now lets say we want to change our working directory to your desktop folder on your machine. This will only change the working directory in this chunk of code. Once this chunk finishes running your working directory will revert to whatever it was prior to running this chunk.
+```
+
+```{r}
+#Now lets say we want to change our working directory to your desktop folder on your machine. This will only change the working directory in this chunk of code. Once this chunk finishes running your working directory will revert to whatever it was prior to running this chunk. 
 setwd("/Users/ursus03/Desktop/ECOL5540")
 ``` 
-You will get an error message 'cannot change working directory'.
+You will get an error message 'cannot change working directory'. It is because the pathway you specified doesn't exist on your computer. 
 
-Exercise 3: Insert a new chunk below. Then, write the correct code to change the working directory to your folder on the Desktop of your computer that your created at the beginning of lab, and write the code to get what your current directory is. Run the whole code and copy the whole code you created to the exercise 3 location in your lab handout.
+Exercise 3: Insert a new chunk below. Then, write the correct code to change the working directory to your folder on the Desktop of your computer that your created at the beginning of lab, and write the code to get what your current directory is. Run the whole code and copy the whole code you created to the exercise 3 location in your lab handout. 
 
 #Loading data
-Now lets try to read in our data (pima.csv). In order to do so, we need to make sure we are in the correct working directory and the file exists. You can do this by using the getwd() command and making sure the file exists in that location. 
+Now lets try to read in our data (pima.csv). In order to do so, we need to make sure we are in the correct working directory and the file exists. You can do this by making sure the folder on your desktop contains the pima.csv file.
 
-Below are two lines of code which read in the data set. However, there is one slight difference. Run code 1 first, then run code 2.
+Below are two lines of code which read in the data set. However, there is one slight difference. Run the block "code 1" first, then run "code 2".
 ```{r}
 #Code 1
 setwd("/Users/ursus03/Desktop/GordonClass/")
@@ -81,7 +84,7 @@ Code 2
 setwd("/Users/ursus03/Desktop/GordonClass/")
 Pima<-read.csv("Pima.csv")
 ```
-Exercise 4: What is the difference and what does it do?  Answer this question in the labhandout. Next, run the code below (lines 89-91). What happened when you forget to include the "" around the file name? Answer this question in the labhandout. Next, run the code below (lines 92-95). What happens when your working directory is changed back to the "Downloads" file? Answer this question in the labhandout.
+Exercise 4: What is the difference between the two blocks and what does it do? Hint: Look in your environment. Answer this question in the lab handout. Next, run the code below (lines 89-91). What happened when you forget to include the "" around the file name? Answer this question in the labhandout. Next, run the code below. What happens when your working directory is changed back to the "Downloads" folder? Answer this question in the labhandout.
 
 ```{r}
 setwd("/Users/ursus03/Desktop/GordonClass/")
@@ -92,19 +95,19 @@ Pima<-read.csv(Pima.csv)
 setwd("/Users/gordoncuster/Downloads/")
 Pima<-read.csv("Pima.csv")
 ```
-Exercise 5: A final consideration for reading files in is to specify the entire path to the file. This is often the safest way to operate because it doesn't matter where your working directory is set. You can find a file no matter where it is on your computer. Run the code below (lines 98-100), which is an example of how to specify the entire pathway to a file on my desktop. Copy the error message to your lab handout in the exercise 5 location.
+Exercise 5: A final consideration for reading files in is to specify the entire path to the file. This is often the safest way to operate because it doesn't matter where your working directory is set. By doing so, you can find a file no matter where it is on your computer. Run the code below (lines 98-100), which is an example of how to specify the entire pathway to a file on my desktop. Copy the error message to your lab handout in the exercise 5 answer slot. 
 ```{r}
 Pima<-read.csv("/Users/gordoncuster/Desktop/pima.csv")
 ```
 Next, insert a new chunk below and write the correct code to read in the Pima.csv file using the entire pathway to your folder on your Desktop. Run the code to see if there are no error messages and then copy the code to your lab handout in the exercise 5 location. 
 
-R will yell at you. Get used to it. It happens all the time. Learn to embrace it and you will be well on your way to solving any problem R can throw at you. Did you notice that the symbol "<-" saves what ever is to the right as a variable named what you have to the left of the symbol "<-". This can be extremely useful when selecting a subset of a data frame or running an analysis. You don't want to have to re-run it every time. By saving it to a new variable you can access it whenever you wish. 
+Disclamier: R will yell at you. Get used to it. It happens all the time. Learn to embrace it and you will be well on your way to solving any problem R can throw at you. Did you notice that the symbol "<-" saves whatever is to the right as a variable named what you have to the left of the symbol "<-". This can be extremely useful when selecting a subset of a data frame or running an analysis. You don't want to have to re-run it every time. By saving it to a new variable you can access it whenever you wish. 
 
-Tip: Help pages. Under the Help tab in the bottom right pane, type "read.csv" in the search bar on the right. This page will tell you everything that the function read.csv (well actually read.table) requires and can do. Become familiar with these pages and you can avoid many head aches. Each page provides a brief description of the function, the usages, required arguments, outputs (values), and a short example snippet of code.
+Tip: Help pages. Under the "Help" tab in the bottom right pane, type "read.csv" in the search bar with the magnifying glass. This page will tell you everything that the function read.csv (well actually read.table) requires and can do. Become familiar with these pages and you can avoid many headaches. Each page provides a brief description of the function, the usages, required arguments, outputs (values), and a short example snippet of code.
 
-Exercise 6: Copy the description, that appeared in your help pane after you searched for "read.csv", to your lab handout in the exercise 6 location. 
+Exercise 6: Copy the description, that appeared in your help pane after you searched for "read.csv", to your lab handout in the exercise 6 answer slot. 
 
-Now that our data is read in, lets see what it looks like. We can do this several ways. Below are several ways to look at the data. Look at each of the different types of data display by running the codes.  
+Now that our data is read in, lets see what it looks like. We can do this several ways. Below are several ways to look at the data. Look at each of the different types of data display by running the code blocks below.  
 ```{r}
 #Code 1, just the name of the data file, will give you an overview of what the data looks like for all your columns.
 Pima
@@ -120,9 +123,9 @@ str(Pima)
 summary(Pima)
 ```
 
-Exercise 7: Look at the output from str(Pima). The data structure of Pima is a data.frame. What other types exist? Use Google and look for other data types. Answer this question in the labhandout. The type of data is an important point because some functions in R require a certain type of data. 
+Exercise 7: Look at the output from str(Pima). The data structure of Pima is a data.frame. What other types exist? Use Google and look for other data types. Answer this question in the labhandout. The type of data is an important point because some functions in R require a certain type of data. Usually, this will be pointed out on the functions help page. 
 
-What if you need another type of data? Some functions which are extremely useful for converting among data types are as.data.frame and as.matrix. 
+What if you need another type of data? Some functions which are extremely useful for converting among data types are data.frame and as.matrix. 
 Exercise 8: Convert the Pima data.frame to a matrix, using the code below, and then check its structure. Copy the info displayed of the structure to your lab handout in the exercise 8 location. Once you have done this convert the Pima matrix back to a data.frame, using the second code below. 
 
 ```{r}
@@ -138,40 +141,41 @@ Pima$test<-as.factor(Pima$test)
 
 str(Pima)
 ```
-After you have converted the Pima matrix back to a data.frame check its structure again. You will see that each variable has a data type associated with it. In our Pima data.frame we have 8 numeric (num) and 1 factor (factor).  What do some of these things mean (character vs. numeric vs. factor)? Numeric and integers are ways of encoding numeric data. The big difference is that integers can not have decimals while numeric variables can. Factors are a good way of including categorical data. As you can see the test column is a factor with two levels. The levels correspond to a positive or negative test for diabetes.
+After you have converted the Pima matrix back to a data.frame check its structure again. You will see that each variable has a data type associated with it. In our Pima data.frame we have 8 numeric (num) and 1 factor (factor). What do some of these things mean (character vs. numeric vs. factor)? Numeric and integers are ways of encoding numeric data. The big difference is that integers can not have decimals while numeric variables can. Factors are a good way of including categorical data. As you can see the test column is a factor with two levels. The levels correspond to a positive or negative test for diabetes, with 1 being positive and 0 negative.
 
 #Working with data
-In the code below we introduce an easy way to pull out a single column from a data set. Run the full code and take a look at the resulting figures. As you will see, the "$" operator allow you to select a single column. 
+In the code below we introduce an easy way to pull out a single column from a data set. Run the coode below and take a look at the resulting figures. As you will see, the "$" operator allow you to select a single column. 
 ```{r}
 # The first line of code will display all variables in various plots, the second line will plot only the diastolic variable, and the third code line will result in a histogram of the variable diastolic.
 plot(Pima)
 plot(Pima$diastolic)
 hist(Pima$diastolic)
 ```
-Exercise 9: Suppose you wanted to select several columns. Lets say columns 1-5. What would you do? Let's use this opportunity to try Googling your problem. This is another useful skill to master. If you can put your problem in the correct terms, it is very likely someone else has faced the same difficulty and will be able to help.  Search Google for the answer to this problem. I would say start Googling something like "Program R select multiple columns" or "subset data frame to only include certain columns Program R". As you can see from these two suggestions, the exact verbiage isn't that important. Copy your final code to your lab handout in the exercise 9 location, as well as the first line of the resulting display of the data structure using the 'str' command.
+Exercise 9: Suppose you wanted to select several columns. Let's say columns 1-5. What would you do? Let's use this opportunity to try and Google your problem. This is another useful skill to master. If you can put your problem in the correct terms, it is very likely someone else has faced the same difficulty and will be able to help.  Search Google for the answer to this problem. I would say start Googling something like "Program R select multiple columns" or "subset data frame to only include certain columns Program R". As you can see from these two suggestions, the exact verbiage isn't that important. Copy your final code to your lab handout in the exercise 9 answer slot, as well as the first line of the resulting display of the data structure using the 'str' command.
 ```{r}
 #Type your code in the next line that will create a subset of the data set with just columns 1 through 5 selected. Then run the full code, and by using str(subset_Pima), you can check if you did correctly selected the 5 columns.
 str(subset_Pima)
 ```
 Hopefully you found out that the square brackets work such that numbers before the comma indicate rows (by leaving this blank we are telling the program we want all rows) and numbers occurring after the comma indicate columns. Above, we are saying we want only columns 1:5. The c() concatenates this selection. We could also include columns that are not next to each other by writing our brackets to look something like this [,c(1:4, 7)]. This would only select columns 1, 2, 3, 4, and 7. 
 
-Another way to do this would be to make a vector of the column names you wish to keep. Lets use the following block to walk through these steps. Here we introduce a new function, unique. The unique function runs through what ever the input may be and prints each unique value present in the vector or data frame. This function can be very useful. 
+Another way to do this would be to make a vector of the column names you wish to keep. Let's use the following block to walk through these steps. Here we introduce a new function, unique. The unique function runs through what ever the input may be and prints each unique value present in the vector or data frame. This function can be very useful. 
 ```{r}
 unique(colnames(Pima))
+#you could also do this by using the names() function
 #Let's now only pull out the columns "glucose", "diabetes", and "bmi". In order to do so lets make a vector containing these values.
 columns_to_keep<-c("glucose", "diabetes","bmi")
 subset_Pima<-Pima[,colnames(Pima) %in% columns_to_keep]
 str(subset_Pima)
 ```
-Exercise 10: Can you interpret what is going on in the line () of code? Try to put it into plain English. Hint %in% reads as "found in". 
+Exercise 10: Can you interpret what is going on in the "subset_Pima<-Pima[,colnames(Pima) %in% columns_to_keep]" line of code? Try to put it into plain English. Hint %in% reads as "found in". 
 
 Exercise 11: Insert a new chunk of code (don't remember how do do this, see line 58) and write a code that will pull only the first two rows of the columns "age" and "triceps". Copy your final code to your lab handout in the exercise 11 location.
 
-Something to keep in mind is that there are several ways to accomplish the same feat. As of now we have used base R to subset data. A very valuable suite of tools in R come in the Tidyverse package. 
+Something to keep in mind is that there are several ways to accomplish the same feat. As of now we have used base R to subset data. A very valuable suite of tools in R come in the Tidyverse package. We will very breifly introduce the Tidyverse but a more detailed introduction and exaplnation can be found online. 
 
 Install the tidyverse package and load it for use. The chunck below only includes the code to load the package (library(tidyverse)). Can't remember how to install a package, see lines 29-36.
 ```{r}
-install.packages("tidyverse")
+#type necessary code to install the tidyverse package
 require(tidyverse)
 ```
 
@@ -185,15 +189,27 @@ Pima %>%
   group_by(test) %>%
   summarize(mean_glucose = mean(glucose, na.rm = TRUE))
 ```
-Exercise 12: Filter pima to only include the individuals that are over 25. Then get the average B.M.I. for both the positive and negative test groups. Copy your final code to your lab handout in the exercise 12 location, as well as the mean glucose values for each test group.
+Exercise 12: Filter pima to only include the individuals that are over 25. Then get the average B.M.I. for both the positive and negative test groups. Copy your final code to your lab handout in the exercise 12 location.
 
 Answer:
 ```{r}
+Pima %>%
+  filter(age > 25) %>%
+  group_by(test) %>%
+  summarize(avg_BMI = mean(bmi, na.rm = TRUE)) 
+  
 
 ```
-The tidyverse offers a wide array of functions that can make your life easier. It would be wise to familiarize yourself with these functions and make use of them in the future. 
+The tidyverse offers a wide array of functions that can make your life easier. It would be wise to familiarize yourself with these functions and make use of them in the future. The tidyverse offers a large number of packages and would prove too much to cover today. This was included to show that many methods exist for manipulating data. 
 
-Before we call it quits today, lets take this opportunity to practice with some data manipulation in R. In a couple week or so you will be analyzing data collected by a student for their Master's project. In order to determine the effect of treatment we need to make sure we assign the correct data to the correct sample. To accomplish this we want to create a metadata sheet. A metadata sheet will contain all the data collected about each sample. Provided to you is a copy of the excel sheet "Metadata.csv". This sheet contains the site's ID, pH, EC, water content, enzyme values, and C:N. From the name we want to extract the other important information and include this in the metadata in a more explicit form. For example, the site name H11B actually means, the sample was collected from a healthy stand (H), it is the first sampling time (1), site 1 of 5 for healthy stands (1), and it is the bulk soil component (B). In this section we will examine how to pull out data and make our own metadata sheet for further analysis.
+##Here is where the final activity could be customized for a given class
+some examples include: make a histogram
+plot some data
+run an Anova/t.test
+
+This section below was developed for Linda's microbial diversity and ecology course. 
+
+Before we call it quits today, let's take this opportunity to practice with some data manipulation in R. In a couple weeks or so you will be analyzing data collected by a student for their Master's project. In order to determine the effect of treatment we need to make sure we assign the correct data to the correct sample. To accomplish this we want to create a metadata sheet. A metadata sheet will contain all the data collected about each sample. Provided to you is a copy of the excel sheet "Metadata.csv". This sheet contains the site's ID, pH, EC, water content, enzyme values, and C:N. From the name we want to extract the other important information and include this in the metadata in a more explicit form. For example, the site name H11B actually means, the sample was collected from a healthy stand (H), it is the first sampling time (1), site 1 of 5 for healthy stands (1), and it is the bulk soil component (B). In this section we will examine how to pull out data and make our own metadata sheet for further analysis.
 
 Exercise 13: You have the Metadata.csv sheet in your class desktop folder. Next, read it into R (don't remember how, go back to line 74). Copy the code you used to load the data to your lab handout in the exercise 13 location.
 
