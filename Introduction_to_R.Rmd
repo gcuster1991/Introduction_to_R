@@ -193,6 +193,7 @@ Exercise 12: Filter pima to only include the individuals that are over 25. Then 
 
 Answer:
 ```{r}
+#This will be removed 
 Pima %>%
   filter(age > 25) %>%
   group_by(test) %>%
