@@ -126,7 +126,7 @@ Pima<-read.csv("/Users/gordoncuster/Desktop/pima.csv")
 ```
 Next, insert a new chunk below and write the correct code to read in the Pima.csv file using the entire pathway to your folder on your Desktop. Run the code to see if there are no error messages and then copy the code to your lab handout in the exercise 5 location. 
 
-Disclaimer: R will yell at you. Get used to it. It happens all the time. Learn to embrace it and you will be well on your way to solving any problem R can throw at you. Did you notice that the symbol "<-" saves whatever is to the right as a variable named what you have to the left of the symbol "<-". This can be extremely useful when selecting a subset of a data frame or running an analysis. You don't want to have to re-run it every time. By saving it to a new variable you can access it whenever you wish. 
+Disclaimer: R will yell at you. Get used to it. It happens all the time. Learn to embrace it and you will be well on your way to solving any problem R can throw at you. Did you notice we used the assignment operator again here? This can be extremely useful when selecting a subset of a data frame or running an analysis. You don't want to have to re-run it every time. By saving it to a new variable you can access it whenever you wish. 
 
 Tip: Help pages. Under the "Help" tab in the bottom right pane, type "read.csv" in the search bar with the magnifying glass. This page will tell you everything that the function read.csv (well actually read.table) requires and can do. Become familiar with these pages and you can avoid many headaches. Each page provides a brief description of the function, the usages, required arguments, outputs (values), and a short example snippet of code.
 
@@ -165,7 +165,6 @@ str(Pima)
 #The code as.data.frame will convert your matrix back to a data frame again 
 Pima<-data.frame(Pima)
 Pima$test<-as.factor(Pima$test)
-
 str(Pima)
 ```
 After you have converted the Pima matrix back to a data.frame check its structure again. You will see that each variable has a data type associated with it. In our Pima data.frame we have 8 numeric (num) and 1 factor (factor). What do some of these things mean (character vs. numeric vs. factor)? Numeric and integers are ways of encoding numeric data. The big difference is that integers can not have decimals while numeric variables can. Factors are a good way of including categorical data. As you can see the test column is a factor with two levels. The levels correspond to a positive or negative test for diabetes, with 1 being positive and 0 negative.
@@ -176,27 +175,27 @@ You can also create your own data frames and fill them with values of your choic
 ```{r}
 numbs <- c(2, 3, 5, 7, 9) 
 alphas <- c("aa", "bb", "cc", "dd", "ee") 
+#the vectors should be the same length
 combined<-data.frame(numbs, alphas)
 combined
 ```
-As you can see the combined data frame consists of two columns, the first numbers, and the second, alphabetic characters. Look at the types of data in each column. The numbers and dbl (another name for numeric), and the alphas are a factor. Next we will use the seq() function to program a larger data frame. 
+As you can see the combined data frame consists of two columns, the first numbers, and the second, alphabetic characters. Look at the types of data in each column. The numbers and dbl (another name for numeric), and the alphas are a factor. Next we will use the seq() and rep() functions to program a larger data frame. 
 
 ```{r}
-#in the first example we create a small dataframe with two columns and we specify the values we want in each column.
+#in the first example we create a small dataframe with two columns and we specify the values we want in each column
 combined2 <- data.frame(numbs=c(2, 3, 5, 7, 9), alphas=c("aa","bb","cc","dd", "ee"))
-#you can see the produce looks exactly like the on you made above
+#you can see the produce looks exactly like the on you made above and essentialy combines the three steps above to create the data frame
 combined2
 
-#Now let's use the seq() function to programe a larger dataframe.
-combined3 <- data.frame(numbs=seq(from = 2, to = 100, by = 4), alphas=(rep(c("aa", "bb", "cc", "dd", "ee"), times= 5)))
-
+#Now let's use the seq() and rep() functions to programe a larger dataframe.
+combined3 <- data.frame(numbs=seq(from = 1, to = 100, by = 4), alphas=(rep(c("aa", "bb", "cc", "dd", "ee"), times= 5)))
 ```
-This may look complicated but we can break it apart and make sense of it in a piece-wise manner. The first section of the code, "numbs=seq(from = 2, to = 99, by = 3)", creates the first column named "numbs". To do this we say we want a sequence that starts at 2 and goes to 99. The by argument says we want to count by 3s. Simple enough right? Now for the second part. "alphas=(rep(c("aa", "bb", "cc", "dd", "ee"), times= 5))", again we want a column named alphas. However, this time we utilize the rep function, which will repeat whatever you want however many of times you want. If you are confused check the help page. Inside of the rep command "(c("aa", "bb", "cc", "dd", "ee"), times= 5))" we are saying we want a column of letters but only want "aa", "bb", "cc", "dd" and "ee" to appear. We want it to repeat 5 times.  
+This may look complicated but we can break it apart and make sense of it in a piece-wise manner. The first section of the code, "numbs=seq(from = 1, to = 100, by = 4)", creates the first column named "numbs". To do this we say we want a sequence that starts at 1 and goes to 100. The by argument says we want to count by 4s. Simple enough right? Now for the second part. "alphas=(rep(c("aa", "bb", "cc", "dd", "ee"), times= 5))", again we want a column named alphas. However, this time we utilize the rep() function, which will repeat whatever you want however many of times you want. If you are confused check the help page. Inside of the rep command "(c("aa", "bb", "cc", "dd", "ee"), times= 5))" we are saying we want a column of letters but only want "aa", "bb", "cc", "dd" and "ee" to appear. We want it to repeat 5 times.  
 
 Exercise 10: Below create a data frame called "combined4" anyway you would like and copy your code to your word document.
 
 #Working with data
-In the code below we introduce an easy way to pull out a single column from a data set. Run the code below and take a look at the resulting figures. As you will see, the "$" operator allow you to select a single column. 
+In the code below we introduce an easy way to pull out a single column from a data set. Run the code below and take a look at the resulting figures. As you will see, the "$" operator allow you to select a single column. We also see how to plot information and to change labels. Keep this in mind for a later exercise.
 ```{r}
 # The first line of code will display all variables in various plots, the second line will plot only the diastolic variable, and the third code line will result in a histogram of the variable diastolic.
 plot(Pima)
@@ -222,7 +221,7 @@ str(subset_Pima)
 ```
 Exercise 12: Can you interpret what is going on in the "subset_Pima<-Pima[,colnames(Pima) %in% columns_to_keep]" line of code? Try to put it into plain English. Hint %in% reads as "found in". 
 
-Exercise 13: Insert a new chunk of code (don't remember how do do this, see line 58) and write a code that will pull only the first two rows of the columns "age" and "triceps". Copy your final code to your lab handout in the exercise 11 location.
+Exercise 13: Insert a new chunk of code (don't remember how do do this, see line 81) and write a code that will pull only the first two rows of the columns "age" and "triceps". Copy your final code to your lab handout in the exercise 11 location.
 
 As was shown earlier R can act as a calculator. Whats even better is that math you may have to by hand can be completed with a single function. A couple of examples include calculating the mean and standard deviation of a column or set of values. Below is an example.
 ```{r}
@@ -233,7 +232,6 @@ Exercise 14: Calculate the mean and standard deviation individually for each of 
 ```{r}
 
 ```
-
 
 Before we call it quits today, let's take this opportunity to practice with some additional data manipulation in R. You will read in a metadata sheet containing all the data collected for a set of soil samples. Provided to you is a copy of the excel sheet "Metadata.csv". This sheet contains the site's ID, pH, EC, water content, enzyme values, and C:N. From the name we want to extract the other important information and include this in the metadata in a more explicit form. For example, the site name H11B actually means, the sample was collected from a healthy stand (H), it is the first sampling time (1), site 1 of 5 for healthy stands (1), and it is the bulk soil component (B). In this section we will examine how to pull out data and make our own metadata sheet for further analysis.
 
