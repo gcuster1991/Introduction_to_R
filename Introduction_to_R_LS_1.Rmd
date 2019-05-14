@@ -204,8 +204,8 @@ In the code below we introduce an easy way to pull out a single column from a da
 # The first line of code will display all variables in various plots, the second line will plot only the diastolic variable, and the third code line will result in a histogram of the variable diastolic.
 plot(Pima)
 plot(Pima$diastolic)
-# in this plot you can change the X-axis label
-hist(Pima$diastolic, xlab = "Diastolic Blood Presure")
+# in this plot you can change the X-axis label and main title. You can do the same thing for the Y-axis using "ylab=".
+hist(Pima$diastolic, xlab = "Diastolic Blood Presure", main = "Distribution of Diastolic Blood pressures")
 ```
 Exercise 11: Suppose you wanted to select several columns. Let's say columns 1-5. What would you do? Let's use this opportunity to try and Google your problem. This is another useful skill to master. If you can put your problem in the correct terms, it is very likely someone else has faced the same difficulty and will be able to help.  Search Google for the answer to this problem. I would say start Googling something like "Program R select multiple columns" or "subset data frame to only include certain columns Program R". As you can see from these two suggestions, the exact verbiage isn't that important. Copy your final code to your lab handout in the exercise 11 answer slot, as well as the first line of the resulting display of the data structure using the 'str' command.
 ```{r}
@@ -238,16 +238,9 @@ Exercise 14: Calculate the mean and standard deviation individually for each of 
 ```
 
 
-##Here is where the final activity could be customized for a given class
-some examples include: make a histogram
-plot some data
-run an Anova/t.test
+Before we call it quits today, let's take this opportunity to practice with some additional data manipulation in R. You will read in a metadata sheet containing all the data collected for a set of soil samples. Provided to you is a copy of the excel sheet "Metadata.csv". This sheet contains the site's ID, pH, EC, water content, enzyme values, and C:N. From the name we want to extract the other important information and include this in the metadata in a more explicit form. For example, the site name H11B actually means, the sample was collected from a healthy stand (H), it is the first sampling time (1), site 1 of 5 for healthy stands (1), and it is the bulk soil component (B). In this section we will examine how to pull out data and make our own metadata sheet for further analysis.
 
-This section below was developed for Linda's microbial diversity and ecology course. 
-
-Before we call it quits today, let's take this opportunity to practice with some data manipulation in R. In a couple weeks or so you will be analyzing data collected by a student for their Master's project. In order to determine the effect of treatment we need to make sure we assign the correct data to the correct sample. To accomplish this we want to create a metadata sheet. A metadata sheet will contain all the data collected about each sample. Provided to you is a copy of the excel sheet "Metadata.csv". This sheet contains the site's ID, pH, EC, water content, enzyme values, and C:N. From the name we want to extract the other important information and include this in the metadata in a more explicit form. For example, the site name H11B actually means, the sample was collected from a healthy stand (H), it is the first sampling time (1), site 1 of 5 for healthy stands (1), and it is the bulk soil component (B). In this section we will examine how to pull out data and make our own metadata sheet for further analysis.
-
-Exercise 13: You have the Metadata.csv sheet in your class desktop folder. Next, read it into R (don't remember how, go back to line 74). Copy the code you used to load the data to your lab handout in the exercise 13 location.
+Exercise 15: You have the Metadata.csv sheet in your  folder. Next, read it into R (don't remember how, go back to line 100). Copy the code you used to load the data to your lab handout in the exercise 13 location.
 
 First we need to create a column named Soil. This column will tell us whether the sample was collected from the bulk or rhizosphere component. 
 ```{r}
@@ -267,8 +260,8 @@ metadata$Soil<- values[match(metadata$Soil, index)]
 metadata
 ```
 
-Exercise 14: Create a column called "Infestation_Stage". This is designated by the first character in the Sample_ID. H means the sample was collected from a healthy stand, I from an infested stand, and D from a dead stand. In the newly created column "Infestation_Stage" the letter pulled from the first character of the Sample_ID should then be replaced with "Healthy", "Infested", or "Dead". Use the code in the previous sections above (lines 216-231) as a template for writing this new code. 
-Copy the full code you used to your lab handout in the exercise 14 location.
+Exercise 16: Create a column called "Infestation_Stage". This is designated by the first character in the Sample_ID. H means the sample was collected from a healthy stand, I from an infested stand, and D from a dead stand. In the newly created column "Infestation_Stage" the letter pulled from the first character of the Sample_ID should then be replaced with "Healthy", "Infested", or "Dead". Use the code in the previous sections above as a template for writing this new code. 
+Copy the full code you used to your lab handout in the exercise 16 location.
 Answer:
 ```{r}
 ```
@@ -278,15 +271,18 @@ Lets look at our newly minted metadata sheet.
 View(metadata)
 ```
 
-Exercise 15: Save your new metadata file as a .csv to your desktop folder. Save it as a new file from the one your downloaded, i.e. change the name. Copy the full code you used to your lab handout in the exercise 15 location.
+Exercise 17: Save your new metadata file as a .csv to your desktop folder. Save it as a new file from the one you downloaded, i.e. change the name. Copy the full code you used to your lab handout in the exercise 15 location.
 ```{r}
 #code to use to write the new metadata file to your folder on the Desktop, remember, change the path to the file so that it will be saved in the correct folder on your Desktop
-write.csv(metadata,"/Users/LvanDiepen/Documents/teaching/Microbial div & ecology/2018/labs/HTS/Micro_Div-master/metadata_final.csv")
+write.csv(metadata,"##PATH_TO_YOUR_FOLDER/metadata_final.csv")
 ```
 
 Lastly, suppose you are working with a huge data set. For many of you this will be the case. In order to avoid having to read in your data each and running time consuming code each and every time we can save your environment and reload it when you want to come back. To do so, look in the upper right pane under the environment tab. The save icon here will save your environment. 
 
-Exercise 16: Save your working environment for use at a later date. Empty your environment by clicking on the "broom" symbol in the upper right pane under the environment tab and reload your saved data to make sure you are comfortable with this skill. For Reloading: click the "open folder" symbol in the upper right pane under the environment tab.
+Exercise 18: Save your working environment for use at a later date. Empty your environment by clicking on the "broom" symbol in the upper right pane under the environment tab and reload your saved data to make sure you are comfortable with this skill. For Reloading: click the "open folder" symbol in the upper right pane under the environment tab.
+
+#Final exercise
+Using what you have seen above, create a histogram of the column called pH from the metadata. Change the title to "pH of all sites", the X-axis to "pH", and the Y-axis to "number of sites". Include the code you used in your handout under the final exercise heading. 
 
 Citations and Resources:
 1: https://www.r-project.org/ 
