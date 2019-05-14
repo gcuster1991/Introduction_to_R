@@ -27,7 +27,6 @@ Before we get into data manipulation let's quickly go over how to install a pack
 "Do you want to install from sources the packages which need compilation? y/n:"
 If so, type y (for yes) and press enter to continue the installation.
  
-
 ```{r}
 #this line downloads the package to your machine
 install.packages("MASS")
@@ -59,7 +58,6 @@ Another great thing about using R is that it can operate as a calcualator. Below
 sqrt(36)
 ```
 Now let's say you were working with a very complex function and it takes several hours to run. Instead of running the function everytime and utilizing all of your computing power, you could save it using the assignment operator "<-". This operator will assign everything to the right to whatever value you want type on the left. Below is an example.
-
 ```{r}
 answer <- 4*8 + 16 
 #if you type answer and run it you will get 48, which happens to the be answer to 4*8 + 16.
@@ -68,11 +66,10 @@ answer
 answer*10
 ```
 
-Exercise 3: Using R find the answer to "(9*7)/15 + 6". Assign that to a value called "answer1" and multiple it by 15. What is your final product?
+Exercise 3: Using R find the sum of "(9*7)/15 + 6". Assign that to a value called "answer1" and multiple it by 15. What is your final product?
 ```{r}
 
 ```
-
 
 #Familiarizing yourself with your working environment. 
 Your working environment and working directory are extremely important when you want to read in data or save an analysis. Imagine you are in your office; this is your working directory. You can write on a piece of paper and save it on your desk. You can also find notes which you left yourself. You are able to easily access anything in your office. Your neighbors office, while located in the same hallway, requires you to back out of your office and then enter hers. This analogy holds true for finding files on your computer as well. Your working environment will allow you to access files quickly and to write copies of your analysis or environment easily. Like you can walk into your co-workers office, you can change your working directory to access a different set of files. 
@@ -81,7 +78,7 @@ As an example, lets use the file named "pima.csv". We have already loaded this t
 
 Our goal in this section is to read in the file 'pima.csv' sucessfully as well as see what happens when we specify the wrong location. Doing so will help you to understand you can learn from coding errors. Up until now all text has been written outside of a block of code. In order to add comments, which is a really good, I mean REALLY good, habit to get into, you only need to add a "#" before any line you do not wish R to interpret. In the code below (lines ~60-67) you can see certain lines are not interpreted even if you ran the block as a whole. These comments will not show up in your rendered .html notebook either. You have to open the notebook in R studio to access these comments. 
 
-Here (lines 60-67) we have a block of code, also referred to as a "chunk". Anything in here can be ran by clicking the green triangle button in the top right corner of the block. In addition, we can # out this block by placing a "#" before the r in the ```{r}. The keyboard shortcut for inserting a new block of code is "Command" + "Option" + "i". Run both sections of code below by clicking the green triangle button. 
+Here (lines 83-87) we have a block of code, also referred to as a "chunk". Anything in here can be ran by clicking the green triangle button in the top right corner of the block. In addition, we can # out this block by placing a "#" before the r in the ```{r}. The keyboard shortcut for inserting a new block of code is "Command" + "Option" + "i". Run both sections of code below by clicking the green triangle button. 
 
 ```{r}
 #R will not interpret this line due to the # at the begining
