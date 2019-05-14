@@ -282,7 +282,7 @@ Lastly, suppose you are working with a huge data set. For many of you this will 
 Exercise 18: Save your working environment for use at a later date. Empty your environment by clicking on the "broom" symbol in the upper right pane under the environment tab and reload your saved data to make sure you are comfortable with this skill. For Reloading: click the "open folder" symbol in the upper right pane under the environment tab.
 
 #Final exercise
-Using what you have seen above, create a histogram of the column called pH from the metadata. Change the title to "pH of all sites", the X-axis to "pH", and the Y-axis to "number of sites". Include the code you used in your handout under the final exercise heading. 
+Using what you have seen above, create a histogram of the column called pH from the metadata. Change the title to "pH of all sites", the X-axis to "pH", and the Y-axis to "number of sites". Calculate the mean and standard deviation for this column as well. Include the code you used in your handout under the final exercise heading. 
 
 Citations and Resources:
 1: https://www.r-project.org/ 
