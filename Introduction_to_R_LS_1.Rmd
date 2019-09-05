@@ -9,7 +9,7 @@ For many of you this may be your first experience with R. The goal of this modul
 #Getting Started
 After opening R studio you will see 4 panes (maybe 3, meaning one is hidden and we can fix that here in a minute). These four panes are as follows and their locations are given based upon the defaults of R Studio. You can change this if you prefer an alternate set up. 
       1. Source (Top Left). This pane contains the scripts you are working on currently. You can have more than one open at a time.
-      2. Console (Bottom Left). This pane contains a history of the commands you have ran. You can also code directly in this pane, though not always recommended. 
+      2. Console (Bottom Left). This pane contains a history of the commands you have ran. You can also write code directly in this pane, though not always recommended. Any code you write in the console will not save, so we recommend doing all of your coding in a script (top left pane).
       3. Environment/History/Connections (Top Right). The environment contains data which R can access at this given moment. The history tab contains a history of the code you have ran. The connections tab allows you to access outside data sources.
       4. The final pane (Bottom Left) contains several tabs. In this pane, you can view plots, search for files on your computer, install packages (we will get to this in a minute), and even find documentation on packages or functions. This pane is your friend. Become comfortable with it and you will use it often. 
       
@@ -18,12 +18,12 @@ Any experienced R user will tell you one of the benefits of using a program, suc
 
 This is your first exercise. You can read the question here and write your answer in the Word doc "Introduction_to_R_worksheet". You'll notice that as you type and enter new information to your Rnotebook line numbers shift. We have tried to account for entering new lines and based approximate line number off of that. However, in some cases the line numbers may not match up. Keep that in mind when you are looking for an exercise. 
 
-Exercise 1: Navigate to the "File" drop down menu in the toolbar. Click "New File", and open first a "R Script" and then open a "R Notebook". What do you notice about initial appearances? Answer this question in the lab handout. Go to the R Notebook, and run the default script that is displayed in the greyed-out area by clicking on the green triangle in the top right corner of the greyed-out area. The code displayed at the beginning ```{r} and at the end ``` is just used to indicate the start and end of the R code in the R Notebook, and should not be copied into the R script. Copy and past the code (only "plot(cars)") into the basic R Script file you just created and run the script by highlighting the command (plot(cars)) and pressing *Cmd+Enter* (or *Control+Enter on Windows). What is different between the two file type with respect to where the figure appears? Answer this question in the lab handout.
+Exercise 1: Navigate to the "File" drop down menu in the toolbar. Click "New File", and open first a "R Script" and then open a "R Notebook". What do you notice about initial appearances? Answer this question in the lab handout. Go to the R Notebook, and run the default script that is displayed in the greyed-out area by clicking on the green triangle in the top right corner of the greyed-out area. The code displayed at the beginning ```{r} and at the end ``` is just used to indicate the start and end of the R code in the R Notebook, and should not be copied into the R script. Copy and past the code (only "plot(cars)") into the basic R Script file you just created and run the script by highlighting the command (plot(cars)) and pressing *Cmd+Enter* (or *Control+Enter on Windows). Alternatively, if your cursor is on the same line as your code (plot(cars)), this single line of code will run. What is different between the two file type with respect to where the figure appears? Answer this question in the lab handout.
 
-Now, lets see what a co-worker would see if you supplied them a copy of your R Notebook in .html format. Go back to your R notebook you just created, currently titled "Untitled2". On the top of the "Source" pane (top left pane), there is a small button "R Preview". Make sure you have run the plot(cars) command and the figure shows up. Then, click this preview option. You will likely have to install a necessary packages. We will cover how to do this in more detail in the following section. However, for now follow the instructions provided in the pop-up window. After you have installed the necessary packages, the preview option will prompt you to save this script. Save it in your "Introduction_to_R_YOURLASTNAME" folder on the Desktop. It is good practice to save scripts with a descriptive name so you can find it easily at a later date; name this file "ScriptTest_Rnotebook". Once the notebook has rendered, open the .html file from your Finder (or Search) window, and you will see the plot(cars) graph embedded in the document. In addition, you can show or hide the code which was used to produce this graph by clicking "hide" button to the right of the R code blocks. While this example is very simple, the same holds true for more complex analysis. 
+Now, lets see what a co-worker would see if you supplied them a copy of your R Notebook in .html format. Go back to your R notebook you just created, currently titled "Untitled2". On the top of the "Source" pane (top left pane), there is a small button "R Preview". Make sure you have run the plot(cars) command and the figure shows up. Then, click this preview option. You will likely have to install a necessary packages. We will cover how to do this in more detail in the following section. However, for now follow the instructions provided in the pop-up window. After you have installed the necessary packages, the preview option will prompt you to save this script. Save it in your "Introduction_to_R_YOURLASTNAME" folder on the Desktop. It is good practice to save scripts with a descriptive name so you can find it easily at a later date; name this file "Yourlastname_ScriptTest_Rnotebook". Once the notebook has rendered, open the .html file from your Finder (or Search) window, and you will see the plot(cars) graph embedded in the document. In addition, you can show or hide the code which was used to produce this graph by clicking "hide" button to the right of the R code blocks. While this example is very simple, the same holds true for more complex analysis. 
 
 #Installing a package
-Before we get into data manipulation let's quickly go over how to install a package and load it in your current session. Simply put, a package is a collection of programs or functions which might not be included in basic install of R. The default installation and tools included are also known as base R. Installation of packages allows for users to access functions and run analyses without having to write all of the code themselves. The data set used below actually comes included in the "MASS" package. In order to load a package, you must first install it. You only need to install a package once, but you may have to load it many times (usually every time you start a new session). Below you will find two lines which will help you install any given package. Notice the quotations around the name of the package MASS; without them the function will not work. Run the script below (remember the green triangle button) to install the MASS package. Check your console pane at bottom left, as you may get the following message:
+Before we get into data manipulation let's quickly go over how to install a package and load it in your current session. Simply put, a package is a collection of programs or functions which might not be included in that basic install of R. The default installation and tools included are also known as base R. Installation of packages allows for users to access more functionality and run analyses without having to write all of the code themselves. The data set used below actually comes included in the "MASS" package. In order to load a package, you must first install it. You only need to install a package once, but you may have to load it many times (usually every time you start a new session). Below you will find two lines which will help you install any given package. Notice the quotations around the name of the package MASS; without them the function will not work. Run the script below (remember the green triangle button) to install the MASS package. Check your console pane at bottom left, as you may get the following message:
 "Do you want to install from sources the packages which need compilation? y/n:"
 If so, type y (for yes) and press enter to continue the installation.
  
@@ -39,7 +39,7 @@ library(MASS)
 (.packages())
 ```
 
-While this package loaded relatively quickly some packages take hours to successfully download and install and may requires many dependencies to run successfully.
+While this package loaded relatively quickly some packages take hours to successfully download and install and may requires many dependencies (i.e. other packages that these ones use) to run successfully.
 
 Exercise 2: Find the 'lubridate' package by going to the "packages" tab in the bottom right pane. Click on "Install"" and search for 'lubridate' in the search bar named "packages". Make sure that the "Install dependencies" box is checked, and click "Install". Again, type 'y' if you get the following message in your console pane: "Do you want to install from sources the packages which need compilation? y/n:". Explore some of the functions included in the 'lubridate' package. To do so, go to the "Packages" tab in the bottom right pane, and in the search bar type 'lubridate'. The package name should come up in the list. Click on the name of the package. This is also a link to the help page. What can you do with this package? Answer this question in the lab handout.
 
@@ -48,7 +48,7 @@ A tip that will come in handy nearly every time you are using R is that you can 
 https://benjjneb.github.io/dada2/dada-installation.html
 
 #R as a calculator 
-Another great thing about using R is that it can operate as a calculator. Below we will introduce you to using R as a calculator as well as the assignment operator. Each of the problems below highlight operators or functions used to perform simple math. 
+Another great thing about using R is that it can operate as a calculator. Below we will introduce you to using R as a calculator as well as the assignment operator. Each of the problems below highlight operators or functions used to perform simple math. Click the green run button to see how R provides the answer to each of these equations.
 ```{r}
 2+7
 9-1
@@ -76,7 +76,7 @@ Your working environment and working directory are extremely important when you 
 
 As an example, lets use the file named "pima.csv". We have already loaded this to the folder on the desktop which you have renamed to "Introduction_to_R_YOURLASTNAME". 
 
-Our goal in this section is to read in the file 'pima.csv' successfully as well as see what happens when we specify the wrong location. Doing so will help you to understand you can learn from coding errors. Up until now all text has been written outside of a block of code. In order to add comments, which is a really good, I mean REALLY good, habit to get into, you only need to add a "#" before any line you do not wish R to interpret. In the code below (lines ~60-67) you can see certain lines are not interpreted even if you ran the block as a whole. These comments will not show up in your rendered .html notebook either. You have to open the notebook in R studio to access these comments. 
+Our goal in this section is to read in the file 'pima.csv' successfully as well as see what happens when we specify the wrong location. Doing so will help you to understand you can learn from coding errors. Up until now all text has been written outside of a block of code. In order to add comments, which is a really good, I mean REALLY good, habit to get into, you only need to add a "#" before any line you do not wish R to interpret. In the code below (lines ~83-87) you can see certain lines are not interpreted even if you ran the block as a whole. These comments will not show up in your rendered .html notebook either. You have to open the notebook in R studio to access these comments. 
 
 Here (lines 83-87) we have a block of code, also referred to as a "chunk". Anything in here can be ran by clicking the green triangle button in the top right corner of the block. In addition, we can # out this block by placing a "#" before the r in the ```{r}. The keyboard shortcut for inserting a new block of code is "Command" + "Option" + "i". Run both sections of code below by clicking the green triangle button. 
 
@@ -109,7 +109,7 @@ Code 2
 setwd("/Users/ursus03/Desktop/GordonClass/")
 Pima<-read.csv("Pima.csv")
 ```
-Exercise 5: What is the difference between the two blocks and what does it do? Hint: Look in your environment. Answer this question in the lab handout. Next, run the code below (lines 89-91). What happened when you forget to include the "" around the file name? Answer this question in the lab handout. Next, run the code below. What happens when your working directory is changed back to the "Downloads" folder? Answer this question in the lab handout.
+Exercise 5: What is the difference between the two blocks and what does it do? Hint: Look in your environment. Answer this question in the lab handout. Next, run the code below (lines ~114-121). What happened when you forget to include the "" around the file name and why? Answer this question in the lab handout. Next, run the code below. What happens when your working directory is changed back to the "Downloads" folder and why? Answer this question in the lab handout.
 
 ```{r}
 setwd("/Users/ursus03/Desktop/GordonClass/")
@@ -120,17 +120,17 @@ Pima<-read.csv(Pima.csv)
 setwd("/Users/gordoncuster/Downloads/")
 Pima<-read.csv("Pima.csv")
 ```
-Exercise 6: A final consideration for reading files in is to specify the entire path to the file. This is often the safest way to operate because it doesn't matter where your working directory is set. By doing so, you can find a file no matter where it is on your computer. Run the code below (lines 98-100), which is an example of how to specify the entire pathway to a file on my desktop. Copy the error message to your lab handout in the exercise 5 answer slot. 
+Exercise 6: A final consideration for reading files in is to specify the entire path to the file. This is often the safest way to operate because it doesn't matter where your working directory is set. By doing so, you can find a file no matter where it is on your computer. Run the code below (lines 124-126), which is an example of how to specify the entire pathway to a file on my desktop. Copy the error message to your lab handout in the exercise 5 answer slot. 
 ```{r}
 Pima<-read.csv("/Users/gordoncuster/Desktop/pima.csv")
 ```
-Next, insert a new chunk below and write the correct code to read in the Pima.csv file using the entire pathway to your folder on your Desktop. Run the code to see if there are no error messages and then copy the code to your lab handout in the exercise 5 location. 
+Next, insert a new chunk below and write the correct code to read in the Pima.csv file using the entire pathway to your folder on your Desktop. Run the code to see if there are no error messages and then copy the code to your lab handout in the exercise 6 location. 
 
 Disclaimer: R will yell at you. Get used to it. It happens all the time. Learn to embrace it and you will be well on your way to solving any problem R can throw at you. Did you notice we used the assignment operator again here? This can be extremely useful when selecting a subset of a data frame or running an analysis. You don't want to have to re-run it every time. By saving it to a new variable you can access it whenever you wish. 
 
-Tip: Help pages. Under the "Help" tab in the bottom right pane, type "read.csv" in the search bar with the magnifying glass. This page will tell you everything that the function read.csv (well actually read.table) requires and can do. Become familiar with these pages and you can avoid many headaches. Each page provides a brief description of the function, the usages, required arguments, outputs (values), and a short example snippet of code.
+Tip: Help pages. Under the "Help" tab in the bottom right pane, type "read.csv" in the search bar with the magnifying glass. This page will tell you everything that the function read.csv (well actually read.table) requires and can do. Become familiar with these pages and you can avoid many headaches. Each page provides a brief description of the function, the usages, required arguments, outputs (values), and (probably the most important part!) a short example snippet of code.
 
-Exercise 7: Copy the description, that appeared in your help pane after you searched for "read.csv", to your lab handout in the exercise 6 answer slot. 
+Exercise 7: Copy the description, that appeared in your help pane after you searched for "read.csv", to your lab handout in the exercise 7 answer slot. 
 
 #Familiarizing yourself with different data types and structures
 Now that our data is read in, lets see what it looks like. We can do this several ways. Below are several ways to look at the data. Look at each of the different types of data display by running the code blocks below.  
@@ -153,7 +153,7 @@ Exercise 8: Look at the output from str(Pima). The data structure of Pima is a d
 
 What if you need another type of data? Some functions which are extremely useful for converting among data types are data.frame and as.matrix. 
 
-Exercise 9: Convert the Pima data.frame to a matrix, using the code below, and then check its structure. Copy the info displayed of the structure to your lab handout in the exercise 8 location. Once you have done this convert the Pima matrix back to a data.frame, using the second code below. 
+Exercise 9: Convert the Pima data.frame to a matrix, using the code below, and then check its structure. Copy the info displayed of the structure to your lab handout in the exercise 9 location. Once you have done this convert the Pima matrix back to a data.frame, using the second code below. 
 
 ```{r}
 #The code as.matrix will convert your dataframe to a matrix
@@ -189,6 +189,7 @@ combined2
 
 #Now let's use the seq() and rep() functions to programe a larger dataframe.
 combined3 <- data.frame(numbs=seq(from = 1, to = 100, by = 4), alphas=(rep(c("aa", "bb", "cc", "dd", "ee"), times= 5)))
+combined3
 ```
 This may look complicated but we can break it apart and make sense of it in a piece-wise manner. The first section of the code, "numbs=seq(from = 1, to = 100, by = 4)", creates the first column named "numbs". To do this we say we want a sequence that starts at 1 and goes to 100. The by argument says we want to count by 4s. Simple enough right? Now for the second part. "alphas=(rep(c("aa", "bb", "cc", "dd", "ee"), times= 5))", again we want a column named alphas. However, this time we utilize the rep() function, which will repeat whatever you want however many of times you want. If you are confused check the help page. Inside of the rep command "(c("aa", "bb", "cc", "dd", "ee"), times= 5))" we are saying we want a column of letters but only want "aa", "bb", "cc", "dd" and "ee" to appear. We want it to repeat 5 times.  
 
@@ -203,14 +204,14 @@ plot(Pima$diastolic)
 # in this plot you can change the X-axis label and main title. You can do the same thing for the Y-axis using "ylab=".
 hist(Pima$diastolic, xlab = "Diastolic Blood Presure", main = "Distribution of Diastolic Blood pressures")
 ```
-Exercise 11: Suppose you wanted to select several columns. Let's say columns 1-5. What would you do? Let's use this opportunity to try and Google your problem. This is another useful skill to master. If you can put your problem in the correct terms, it is very likely someone else has faced the same difficulty and will be able to help.  Search Google for the answer to this problem. I would say start Googling something like "Program R select multiple columns" or "subset data frame to only include certain columns Program R". As you can see from these two suggestions, the exact verbiage isn't that important. Copy your final code to your lab handout in the exercise 11 answer slot, as well as the first line of the resulting display of the data structure using the 'str' command.
+Exercise 11: Suppose you wanted to select several columns. Let's say columns 1-5. Let's practice what you would do, saving these first 5 columns with the name subsetPima. What would you do? Let's use this opportunity to try and Google your problem. This is another useful skill to master. If you can put your problem in the correct terms, it is very likely someone else has faced the same difficulty and will be able to help.  Search Google for the answer to this problem. I would say start Googling something like "Program R select multiple columns" or "subset data frame to only include certain columns Program R". As you can see from these two suggestions, the exact verbiage isn't that important. Copy your final code to your lab handout in the exercise 11 answer slot, as well as the first line of the resulting display of the data structure using the 'str' command.
 ```{r}
-#Type your code in the next line that will create a subset of the data set with just columns 1 through 5 selected. Then run the full code, and by using str(subset_Pima), you can check if you did correctly selected the 5 columns.
-str(subset_Pima)
+#Type your code in the next line that will create a subset of the data set with just columns 1 through 5 selected. Then run the full code, and by using str(subsetPima), you can check if you did correctly selected the 5 columns.
+str(subsetPima)
 ```
 Hopefully you found out that the square brackets work such that numbers before the comma indicate rows (by leaving this blank we are telling the program we want all rows) and numbers occurring after the comma indicate columns. Above, we are saying we want only columns 1:5. The c() concatenates this selection. We could also include columns that are not next to each other by writing our brackets to look something like this [,c(1:4, 7)]. This would only select columns 1, 2, 3, 4, and 7. 
 
-Another way to do this would be to make a vector of the column names you wish to keep. Let's use the following block to walk through these steps. Here we introduce a new function, unique. The unique function runs through what ever the input may be and prints each unique value present in the vector or data frame. This function can be very useful. 
+Another way to do this would be to make a vector of the column names you wish to keep. Let's use the following code block to walk through these steps. Here we introduce a new function, unique. The unique function runs through what ever the input may be and prints each unique value present in the vector or data frame. This function can be very useful. 
 ```{r}
 unique(colnames(Pima))
 #you could also do this by using the names() function
@@ -235,7 +236,7 @@ Exercise 14: Calculate the mean and standard deviation individually for each of 
 
 Before we call it quits today, let's take this opportunity to practice with some additional data manipulation in R. You will read in a metadata sheet containing all the data collected for a set of soil samples. Provided to you is a copy of the excel sheet "Metadata.csv". This sheet contains the site's ID, pH, EC, water content, enzyme values, and C:N. From the name we want to extract the other important information and include this in the metadata in a more explicit form. For example, the site name H11B actually means, the sample was collected from a healthy stand (H), it is the first sampling time (1), site 1 of 5 for healthy stands (1), and it is the bulk soil component (B). In this section we will examine how to pull out data and make our own metadata sheet for further analysis.
 
-Exercise 15: You have the Metadata.csv sheet in your  folder. Next, read it into R (don't remember how, go back to line 100). Copy the code you used to load the data to your lab handout in the exercise 13 location.
+Exercise 15: You have the Metadata.csv sheet in your  folder. Next, read it into R, saving it using the name metadata (don't remember how, go back to line 100). Copy the code you used to load the data to your lab handout in the exercise 15 location.
 
 First we need to create a column named Soil. This column will tell us whether the sample was collected from the bulk or rhizosphere component. 
 ```{r}
@@ -265,7 +266,7 @@ Lets look at our newly minted metadata sheet.
 View(metadata)
 ```
 
-Exercise 17: Save your new metadata file as a .csv to your desktop folder. Save it as a new file from the one you downloaded, i.e. change the name. Copy the full code you used to your lab handout in the exercise 15 location.
+Exercise 17: Save your new metadata file as a .csv to your desktop folder. Save it as a new file from the one you downloaded, i.e. change the name. Copy the full code you used to your lab handout in the exercise 17 location.
 ```{r}
 #code to use to write the new metadata file to your folder on the Desktop, remember, change the path to the file so that it will be saved in the correct folder on your Desktop
 write.csv(metadata,"##PATH_TO_YOUR_FOLDER/metadata_final.csv")
@@ -276,7 +277,7 @@ Lastly, suppose you are working with a huge data set. For many of you this will 
 Exercise 18: Save your working environment for use at a later date. Empty your environment by clicking on the "broom" symbol in the upper right pane under the environment tab and reload your saved data to make sure you are comfortable with this skill. For Reloading: click the "open folder" symbol in the upper right pane under the environment tab.
 
 #Final exercise
-Using what you have seen above, create a histogram of the column called "pH" from the metadata. Change the title to "pH of all sites", the X-axis to "pH", and the Y-axis to "number of sites". Calculate the mean and standard deviation for this column as well. Include the code you used in your handout under the final exercise heading. 
+Using what you have seen above, create a histogram of the column called "pH" from the metadata. Change the title to "pH of all sites", the X-axis to "pH", and the Y-axis to "number of sites". Calculate the mean and standard deviation for this column as well. Include the code you used in your handout under the final exercise heading and copy the histogram you made to the Word Document.
 
 Citations and Resources:
 1: https://www.r-project.org/ 
